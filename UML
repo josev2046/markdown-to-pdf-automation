@@ -1,0 +1,31 @@
+@startuml
+actor User
+participant Script
+
+activate Script
+
+loop Get all inputs
+    Script --> User : "<Variable Name>" (prompt)
+    activate User
+    User --> Script : <Variable Value>
+    deactivate User
+end
+
+Script --> Script : Create Markdown content 
+activate Script
+Script --> Script : "Create a temporary Markdown file" (Internal)
+Script --> Script : "Write data to the Markdown file" (Internal)
+deactivate Script
+
+Script --> Script : "Convert Markdown to PDF using Pandoc" 
+activate Script
+Script --> Script : "Execute Pandoc command" (Internal)
+deactivate Script
+
+Script --> Script : "Remove the temporary Markdown file" (Internal)
+
+deactivate Script
+
+Script --> User : "Slide generated as $Identifier.pdf"
+
+@enduml
