@@ -28,6 +28,10 @@ markdown_filename="temp_document.md"
 echo "$markdown_content" > "$markdown_filename"
 
 # Convert Markdown to PDF using an external service (replace with actual command)
+# e.g. in Pandoc, something like this: 
+# Generate the Technical Deal Summary PDF
+# create_pdf "$data" "$account_name"
+
 pdf_filename="technical_deal_summary_$Account_Name.pdf"  # Output filename based on a variable
 if ! a_service_to_convert_markdown_to_pdf "$markdown_filename" -o "$pdf_filename"; then # Placeholder command
   echo "Error during conversion."
